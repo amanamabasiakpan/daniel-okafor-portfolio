@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #f6f4ef;
+  --ink: #161714;
+  --muted: #6b6e68;
+  --line: #e4e0d6;
+  --accent: #2f5d50;
+  --accent-soft: #e7efe9;
+  --card: #fffcf7;
+}
+
+.dark {
+  --paper: #121311;
+  --ink: #f3f1ea;
+  --muted: #a8aba4;
+  --line: #2a2c28;
+  --accent: #8fb9a8;
+  --accent-soft: #1c2622;
+  --card: #191b18;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-feature-settings: "ss01" on, "cv11" on;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--ink) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--ink) 6%, transparent) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+}
+
+.reveal {
+  animation: rise 0.7s ease both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+input, textarea {
+  outline: none;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
